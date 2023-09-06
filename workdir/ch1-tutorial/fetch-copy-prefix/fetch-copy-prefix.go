@@ -13,7 +13,6 @@ import (
  */
 func main() {
 	for _, url := range os.Args[1:] {
-
 		if !strings.HasPrefix(url, "http") {
 			url = "http://" + url
 		}
@@ -26,9 +25,12 @@ func main() {
 
 		_, copyErr := io.Copy(os.Stdout, resp.Body)
 		resp.Body.Close()
+
 		if copyErr != nil {
 			fmt.Fprintf(os.Stderr, "fetch-copy-prefix: reading %s: %v\n", url, copyErr)
 			os.Exit(1)
 		}
+
+		fmt.Printf("\nStatus code for the response: %v\n", resp.StatusCode)
 	}
 }
