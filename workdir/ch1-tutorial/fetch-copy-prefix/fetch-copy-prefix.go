@@ -32,5 +32,6 @@ func main() {
 		}
 
 		fmt.Printf("\nStatus code for the response: %v\n", resp.StatusCode)
+		fmt.Println("\n\n\n\n\n")
 	}
 }
